@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #0e7295;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="70.0" layoutY="132.0" prefHeight="51.0" prefWidth="119.0" text="Username:" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="70.0" layoutY="172.0" prefHeight="51.0" prefWidth="119.0" text="Password:" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="70.0" layoutY="252.0" prefHeight="51.0" prefWidth="174.0" text="Data de nascimento" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="70.0" layoutY="212.0" prefHeight="51.0" prefWidth="152.0" text="confirm Password:" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <DatePicker layoutX="245.0" layoutY="272.0" />
+      <TextField layoutX="245.0" layoutY="152.0" />
+      <PasswordField layoutX="245.0" layoutY="192.0" />
+      <PasswordField layoutX="245.0" layoutY="232.0" />
+      <Button layoutX="475.0" layoutY="340.0" mnemonicParsing="false" onAction="#ConfirmarRegisto" text="Confirmar registo" />
+      <Button layoutX="16.0" layoutY="340.0" mnemonicParsing="false" onAction="#Voltar" text="Voltar a trás" />
+      <Text fill="WHITE" layoutX="279.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AnimeX">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

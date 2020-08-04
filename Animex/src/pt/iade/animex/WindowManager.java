@@ -5,6 +5,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import pt.iade.animex.controllers.MainController;
+import pt.iade.animex.controllers.RegisterController;
+import pt.iade.animex.controllers.UserController;
 
 
 public class WindowManager {
@@ -16,17 +18,26 @@ public class WindowManager {
 	}
 
 
-	public static void backToMainWindow() {
-		openSceneInWindow("views/mainView.fxml",
-				primaryStage,new MainController());
-	}
-	
+
 	
 	public static void openMainWindow() {
-		openWindow("views/StartUp.fxml",
+		openWindow("views/Start.fxml",
 				primaryStage,new MainController());
 		primaryStage.show();
 	}
+	
+	public static void openUserPage() {   //função que chama a pagina principal do user, após dar login
+		openWindow("views/User.fxml",
+				primaryStage,new UserController());
+		primaryStage.show();
+	}
+	public static void openRegister() {  // função que chama a pagina de registo
+		openWindow("views/Register.fxml",
+				primaryStage,new RegisterController());
+		primaryStage.show();
+	}
+	
+	
 	
 	public static void openSceneInWindow(String viewPath, Stage window,
 			Object controller) {
