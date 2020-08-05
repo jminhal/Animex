@@ -5,6 +5,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import pt.iade.animex.controllers.MainController;
+import pt.iade.animex.controllers.ModeradorController;
 import pt.iade.animex.controllers.RegisterController;
 import pt.iade.animex.controllers.UserController;
 
@@ -21,20 +22,30 @@ public class WindowManager {
 
 	
 	public static void openMainWindow() {
-		openWindow("views/Start.fxml",
+		openWindow("views/StartScreen.fxml",
 				primaryStage,new MainController());
 		primaryStage.show();
 	}
 	
 	public static void openUserPage() {   //função que chama a pagina principal do user, após dar login
-		openWindow("views/User.fxml",
+		openWindow("views/UserScreen.fxml",
 				primaryStage,new UserController());
 		primaryStage.show();
 	}
 	public static void openRegister() {  // função que chama a pagina de registo
-		openWindow("views/Register.fxml",
+		openWindow("views/RegisterScreen.fxml",
 				primaryStage,new RegisterController());
 		primaryStage.show();
+	}
+	public static void openModerador() {  // função que chama a pagina de registo
+		openWindow("views/ModeradorScreen.fxml",
+				primaryStage,new ModeradorController()); 
+		primaryStage.show();
+	}
+	
+	public static void openIMScreen() {  // função que chama a pagina de interface do Moderador
+		openWindow("views/ModeradorScreen.fxml",
+				primaryStage,new ModeradorController()); 
 	}
 	
 	

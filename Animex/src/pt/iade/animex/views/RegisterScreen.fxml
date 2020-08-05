@@ -6,6 +6,7 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -35,12 +36,20 @@
       <TextField layoutX="245.0" layoutY="152.0" />
       <PasswordField layoutX="245.0" layoutY="192.0" />
       <PasswordField layoutX="245.0" layoutY="232.0" />
-      <Button layoutX="475.0" layoutY="340.0" mnemonicParsing="false" onAction="#ConfirmarRegisto" text="Confirmar registo" />
-      <Button layoutX="16.0" layoutY="340.0" mnemonicParsing="false" onAction="#Voltar" text="Voltar a trás" />
+      <Button layoutX="456.0" layoutY="331.0" mnemonicParsing="false" onAction="#ConfirmarRegisto" prefHeight="42.0" prefWidth="112.0" style="-fx-background-color: #0e7295;" text="Confirmar registo" textFill="WHITE" />
+      <Button layoutX="17.0" layoutY="331.0" mnemonicParsing="false" onAction="#Voltar" prefHeight="41.0" prefWidth="112.0" style="-fx-background-color: #0e7295;" text="Voltar a trás" textFill="WHITE" />
       <Text fill="WHITE" layoutX="279.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AnimeX">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
+      <Line endX="13.0" endY="-1.0" layoutX="116.0" layoutY="332.0" startX="-98.0" startY="-1.0" stroke="WHITE" />
+      <Line endX="13.0" endY="-1.0" layoutX="115.0" layoutY="374.0" startX="-98.0" startY="-1.0" stroke="WHITE" />
+      <Line endX="-100.0" endY="42.0" layoutX="117.0" layoutY="331.0" startX="-100.0" stroke="WHITE" />
+      <Line endX="-100.0" endY="42.0" layoutX="229.0" layoutY="331.0" startX="-100.0" stroke="WHITE" />
+      <Line endX="13.0" endY="-1.0" layoutX="555.0" layoutY="332.0" startX="-98.0" startY="-1.0" stroke="WHITE" />
+      <Line endX="13.0" endY="-1.0" layoutX="554.0" layoutY="374.0" startX="-98.0" startY="-1.0" stroke="WHITE" />
+      <Line endX="-100.0" endY="42.0" layoutX="556.0" layoutY="331.0" startX="-100.0" stroke="WHITE" />
+      <Line endX="-100.0" endY="42.0" layoutX="668.0" layoutY="331.0" startX="-100.0" stroke="WHITE" />
    </children>
 </AnchorPane>
