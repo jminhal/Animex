@@ -9,6 +9,9 @@ import pt.iade.animex.WindowManager;
 
 
 public class UserController {
+	private String corAzul = "-fx-background-color: #95310e"; //muda a cor do botão)
+	private String corVermelha = "-fx-background-color: #0e7295"; // muda a cor do botão)
+	
 	
     @FXML
     private Button IDPesquisar;
@@ -28,30 +31,24 @@ public class UserController {
     @FXML
     void ContinuarVer(ActionEvent event) {	
     	//faz mudar as cores dos botões neste caso é o Continuar a ver
-    	IDContinuar.setStyle("-fx-background-color: #95310e;");				
-    	IDPesquisar.setStyle("-fx-background-color: #0e7295;");
-    	IDVoltar.setStyle("-fx-background-color: #0e7295;");
-
+    	IDContinuar.setStyle(corAzul);				
+    	IDPesquisar.setStyle(corVermelha);
+    	IDVoltar.setStyle(corVermelha);
     }
-
     @FXML
     void Pesquisar(ActionEvent event) {
     	//faz mudar as cores dos botões neste caso é o Pesquisar
-    	IDPesquisar.setStyle("-fx-background-color: #95310e;");
-    	IDContinuar.setStyle("-fx-background-color: #0e7295;");
-    	IDVoltar.setStyle("-fx-background-color: #0e7295;");
-    	
-    	
-    	
+    	IDPesquisar.setStyle(corAzul);
+    	IDContinuar.setStyle(corVermelha);
+    	IDVoltar.setStyle(corVermelha);  	
     }
-
     @FXML
     void VoltarVer(ActionEvent event) {
     	//faz mudar as cores dos botões neste caso é o Voltar a ver
-    	IDVoltar.setStyle("-fx-background-color: #95310e;");
-    	IDPesquisar.setStyle("-fx-background-color: #0e7295;");
-    	IDContinuar.setStyle("-fx-background-color: #0e7295;");
+    	IDVoltar.setStyle(corAzul);
+    	IDPesquisar.setStyle(corVermelha);
+    	IDContinuar.setStyle(corVermelha);
+    	}
 
-    }
 
 }
