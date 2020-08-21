@@ -12,13 +12,15 @@ public class MainController {
 		}
 
 	    @FXML
-	    void Entrar(ActionEvent event) {			//botão que faz login na pagina inicial
-	    	WindowManager.openUserPage();;
+	    void Entrar(ActionEvent event) {			//botão que faz ir para o loginScreen
+	    	WindowManager.openLogin();
+
+
 
 	    }
 
 	    @FXML
-	    void NewAccount(ActionEvent event) {  	//botão que faz abrir a pagina do registo
+	    void NewAccount(ActionEvent event) {  	//boto que faz ir para o registerScreen
 	    	WindowManager.openRegister();
 	    }
 

@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
-public class LoginRegister {
+public class LoginAndRegister {
 	
 	public static boolean userVerify(String user) {
 		boolean existe = false;
@@ -56,7 +56,7 @@ public class LoginRegister {
 		return verificar;
 	}
 	
-	public static boolean adminVerify(String user) {
+	public static boolean ModVerify(String user) {
 		boolean verificar = false;
 		try {
 			PreparedStatement statement = DBConnector.getConnection().prepareStatement("SELECT admin FROM utilizador where username = '"+user+"'");

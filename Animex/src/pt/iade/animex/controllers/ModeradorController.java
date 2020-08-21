@@ -27,7 +27,7 @@ public class ModeradorController {
 	    
 		@FXML
 		void Moderador(ActionEvent event) {  // botão que faz com que o Moderador vá para a zona de adicionar Animes
-			WindowManager.openIMScreen();
+			WindowManager.openIM();
 
 		}
 		  
