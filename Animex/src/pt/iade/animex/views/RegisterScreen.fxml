@@ -32,10 +32,10 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <DatePicker layoutX="245.0" layoutY="272.0" />
-      <TextField layoutX="245.0" layoutY="152.0" />
-      <PasswordField layoutX="245.0" layoutY="192.0" />
-      <PasswordField layoutX="245.0" layoutY="232.0" />
+      <DatePicker fx:id="birthday" layoutX="245.0" layoutY="272.0" />
+      <TextField fx:id="username" layoutX="245.0" layoutY="152.0" />
+      <PasswordField fx:id="password" layoutX="245.0" layoutY="192.0" />
+      <PasswordField fx:id="passwordconf" layoutX="245.0" layoutY="232.0" />
       <Button layoutX="456.0" layoutY="331.0" mnemonicParsing="false" onAction="#ConfirmarRegisto" prefHeight="42.0" prefWidth="112.0" style="-fx-background-color: #0e7295;" text="Confirmar registo" textFill="WHITE" />
       <Button layoutX="17.0" layoutY="331.0" mnemonicParsing="false" onAction="#Voltar" prefHeight="41.0" prefWidth="112.0" style="-fx-background-color: #0e7295;" text="Voltar a trás" textFill="WHITE" />
       <Text fill="WHITE" layoutX="279.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AnimeX">
