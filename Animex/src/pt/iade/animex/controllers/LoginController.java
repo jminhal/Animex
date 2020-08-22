@@ -23,16 +23,16 @@ public class LoginController {
     		    	WindowManager.openModerador();
     			}
     			else {
-    			WindowManager.openUserPage();
+    				WindowManager.openUserPage();
     			}
     		}
     		else {
-    		Dialog.warningDialog("", "Essa conta não existe na nossa base de dados, cria uma conta primeiro!", "Atenção" );
+    			Dialog.warningDialog("", "Essa conta não existe na nossa base de dados, cria uma conta primeiro!", "Atenção" );
     		}
 
     	}
 		else {
-		Dialog.warningDialog("", "Falta-te preencher o username ou a password", "Atenção" );
+			Dialog.warningDialog("", "Falta-te preencher o username ou a password", "Atenção" );
 		}
     }
 

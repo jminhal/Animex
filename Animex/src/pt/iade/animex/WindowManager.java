@@ -3,11 +3,16 @@ import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import pt.iade.animex.controllers.BacktoWatchController;
+import pt.iade.animex.controllers.ContinueController;
 import pt.iade.animex.controllers.LoginController;
 import pt.iade.animex.controllers.MainController;
 import pt.iade.animex.controllers.ModeradorController;
 import pt.iade.animex.controllers.RegisterController;
+import pt.iade.animex.controllers.SearchController;
 import pt.iade.animex.controllers.SideBarController;
 import pt.iade.animex.controllers.MIController;
 
@@ -29,7 +34,7 @@ public class WindowManager {
 	}
 	
 	public static void openUserPage() {   //função que chama a vista do user
-		openWindow("views/UserScreen.fxml",
+		openWindow("views/SideBarScreen.fxml",
 				primaryStage,new SideBarController());
 		primaryStage.show();
 	}
@@ -54,6 +59,22 @@ public class WindowManager {
 				primaryStage,new LoginController());
 		primaryStage.show();
 	}
+	public static void openBacktoWatch() {   //função que chama a pagina do voltar a ver
+		openWindow("views/BacktoWatchScreen.fxml",
+				primaryStage,new BacktoWatchController());
+		primaryStage.show();
+	}
+	public static void openSearch() {   //função que chama a pagina do pesquisar
+		openWindow("views/SearchScreen.fxml",
+				primaryStage,new SearchController());
+		primaryStage.show();
+	}
+	public static void openContinue() {  //função que chama a pagina do continuar a ver
+		openWindow("views/ContinueScreen.fxml",
+				primaryStage,new ContinueController());
+		primaryStage.show();
+	}
+	
 	
 	
 	
@@ -89,6 +110,21 @@ public class WindowManager {
 		Parent root = loader.load();
 		return root;
 	}
-	
-	
+
+
+
+	public static void loadUI(String viewPath, Object controller, BorderPane pane) {
+		AnchorPane root = null;
+		try {
+			FXMLLoader loader = new FXMLLoader(Main.class.getResource(viewPath));
+			loader.setController(controller);
+			root = loader.load();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		pane.setCenter(root);
+	}
+
 }
+	
