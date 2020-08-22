@@ -22,9 +22,6 @@ public class MIController {
 
     }
 
-    @FXML
-    void Moderador(ActionEvent event) {			// botão para entrar no MIScreen
-    }
 
     @FXML
     void VoltarAnimeX(ActionEvent event) {	// botão para voltar para o ModeradorScreen

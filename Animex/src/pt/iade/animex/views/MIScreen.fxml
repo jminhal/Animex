@@ -12,17 +12,16 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #0e7295;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button layoutX="475.0" layoutY="15.0" mnemonicParsing="false" onAction="#VoltarAnimeX" prefHeight="35.0" prefWidth="35.0" />
-      <Button layoutX="563.0" layoutY="14.0" mnemonicParsing="false" onAction="#LogOut" prefHeight="41.0" prefWidth="38.0" style="-fx-background-color: #0e7295;" />
-      <ImageView fitHeight="35.0" fitWidth="30.0" layoutX="567.0" layoutY="16.0">
+      <Button layoutX="507.0" layoutY="11.0" mnemonicParsing="false" onAction="#VoltarAnimeX" prefHeight="42.0" prefWidth="41.0" style="-fx-background-color: #0e7295;" />
+      <ImageView fitHeight="35.0" fitWidth="30.0" layoutX="513.0" layoutY="16.0">
          <image>
-            <Image url="@../imagens/icons8-sair-64.png" />
+            <Image url="@../imagens/icons8-back-48.png" />
          </image>
       </ImageView>
-      <Button layoutX="517.0" layoutY="15.0" mnemonicParsing="false" onAction="#Moderador" prefHeight="35.0" prefWidth="35.0" style="-fx-background-color: #0e7295;" />
-      <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="517.0" layoutY="16.0">
+      <Button layoutX="555.0" layoutY="13.0" mnemonicParsing="false" onAction="#LogOut" prefHeight="42.0" prefWidth="43.0" style="-fx-background-color: #0e7295;" />
+      <ImageView fitHeight="35.0" fitWidth="30.0" layoutX="564.0" layoutY="16.0">
          <image>
-            <Image url="@../imagens/icons8-macho-de-configurações-de-admin-64.png" />
+            <Image url="@../imagens/icons8-sair-64.png" />
          </image>
       </ImageView>
       <Label layoutX="39.0" layoutY="83.0" text="Nome do anime" textFill="WHITE">

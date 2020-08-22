@@ -9,7 +9,7 @@ import pt.iade.animex.controllers.MainController;
 import pt.iade.animex.controllers.ModeradorController;
 import pt.iade.animex.controllers.RegisterController;
 import pt.iade.animex.controllers.UserController;
-
+import pt.iade.animex.controllers.MIController;
 
 public class WindowManager {
 
@@ -45,8 +45,8 @@ public class WindowManager {
 	}
 	
 	public static void openIM() {  // função que chama a pagina de interface do Moderador
-		openWindow("views/ModeradorScreen.fxml",
-				primaryStage,new ModeradorController()); 
+		openWindow("views/MIScreen.fxml",
+				primaryStage,new MIController()); 
 		primaryStage.show();
 	}
 	public static void openLogin() {   //função que chama a pagina principal do user, após dar login
