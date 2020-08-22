@@ -15,10 +15,11 @@ public class Dialog {
 	 * @param title titulo do warning
 	 * @param text texto do warning
 	 */
-	public static void warningDialog(String title, String text) {
+	public static void warningDialog(String title, String text, String Header) {
 		Alert alert = new Alert(AlertType.WARNING);
 		alert.setTitle(title);
 		alert.setContentText(text);
+		alert.setHeaderText(Header);
 
 		alert.showAndWait();
 		

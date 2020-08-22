@@ -22,11 +22,18 @@ public class LoginController {
     			if (LoginAndRegister.ModVerify(username.getText())) {
     		    	WindowManager.openModerador();
     			}
+    			else {
     			WindowManager.openUserPage();
+    			}
     		}
-    		Dialog.warningDialog("Atenção!", "Preencha os campos anteriores");
-	
+    		else {
+    		Dialog.warningDialog("", "Essa conta não existe na nossa base de dados, cria uma conta primeiro!", "Atenção" );
+    		}
+
     	}
+		else {
+		Dialog.warningDialog("", "Falta-te preencher o username ou a password", "Atenção" );
+		}
     }
 
     @FXML
