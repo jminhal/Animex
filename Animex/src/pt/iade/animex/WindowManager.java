@@ -8,7 +8,7 @@ import pt.iade.animex.controllers.LoginController;
 import pt.iade.animex.controllers.MainController;
 import pt.iade.animex.controllers.ModeradorController;
 import pt.iade.animex.controllers.RegisterController;
-import pt.iade.animex.controllers.UserController;
+import pt.iade.animex.controllers.SideBarController;
 import pt.iade.animex.controllers.MIController;
 
 public class WindowManager {
@@ -30,7 +30,7 @@ public class WindowManager {
 	
 	public static void openUserPage() {   //função que chama a vista do user
 		openWindow("views/UserScreen.fxml",
-				primaryStage,new UserController());
+				primaryStage,new SideBarController());
 		primaryStage.show();
 	}
 	public static void openRegister() {  // função que chama a pagina de registo

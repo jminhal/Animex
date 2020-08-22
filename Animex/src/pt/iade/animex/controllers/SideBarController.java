@@ -8,7 +8,7 @@ import javafx.scene.control.Button;
 import pt.iade.animex.WindowManager;
 
 
-public class UserController {
+public class SideBarController {
 	private String corAzul = "-fx-background-color: #95310e"; //muda a cor do botão)
 	private String corVermelha = "-fx-background-color: #0e7295"; // muda a cor do botão)
 	
