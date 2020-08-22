@@ -10,7 +10,8 @@ public class LoginAndRegister {
 	public static boolean userVerify(String user) {
 		boolean existe = false;
 		try {
-			PreparedStatement statement = DBConnector.getConnection().prepareStatement("SELECT username FROM utilizador where username = '"+user+"'");
+			PreparedStatement statement = DBConnector.getConnection().prepareStatement("SELECT username FROM utilizador where username = ?");
+			statement.setString(1, user);
 			ResultSet results = statement.executeQuery();
 			if (results.next()) {
 				existe = true;
@@ -41,7 +42,8 @@ public class LoginAndRegister {
 	public static boolean passwordVerify(String user, String password) {
 		boolean verificar = false;
 		try {
-			PreparedStatement statement = DBConnector.getConnection().prepareStatement("SELECT password FROM utilizador where username = '"+user+"'");
+			PreparedStatement statement = DBConnector.getConnection().prepareStatement("SELECT password FROM utilizador where username = ?");
+			statement.setString(1, user);
 			ResultSet results = statement.executeQuery();
 			if (results.next()) {
 				String password2 = results.getString(1);
@@ -59,7 +61,8 @@ public class LoginAndRegister {
 	public static boolean ModVerify(String user) {
 		boolean verificar = false;
 		try {
-			PreparedStatement statement = DBConnector.getConnection().prepareStatement("SELECT admin FROM utilizador where username = '"+user+"'");
+			PreparedStatement statement = DBConnector.getConnection().prepareStatement("SELECT admin FROM utilizador where username = ?");
+			statement.setString(1, user);
 			ResultSet results = statement.executeQuery();
 			if (results.next()) {
 				verificar= results.getBoolean(1);
