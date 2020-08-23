@@ -16,26 +16,42 @@ public class SideBarController {
 	private String corVermelha = "-fx-background-color: #0e7295"; // muda a cor do botão)
     @FXML
     private BorderPane SideBarID;
-    @FXML
-    private AnchorPane test;
+
 	
     @FXML
     private Button IDPesquisar;
 
     @FXML
     private Button IDContinuar;
-
+    @FXML
+    private AnchorPane IconMod;
     @FXML
     private Button IDVoltar;
+    
+    @FXML
+    private void initialize() {
+    	if(LoginController.eMod) {
+    		IconMod.setVisible(true);
+    		
+    	}
+    }
     
     @FXML
     void LogOut(ActionEvent event) {  //botão que faz sair da conta e voltar ao start do programa
     	WindowManager.openMainWindow();
 
     }
+
+    @FXML
+    void moderador(ActionEvent event) {
+    	WindowManager.openIM();
+    	
+    }
     
     @FXML
     void Pesquisar(ActionEvent event) {
+    	//carrega no centro o fxml, neste caso carrega no SearchScreen
+
     	WindowManager.loadUI("views/SearchScreen.fxml", new SearchController(), SideBarID);
     	//faz mudar as cores dos botões neste caso é o Pesquisar
     	IDPesquisar.setStyle(corAzul);
@@ -45,6 +61,7 @@ public class SideBarController {
     
     @FXML
     void ContinuarVer(ActionEvent event) {	
+    	//carrega no centro o fxml, neste caso carrega no ContinueScreen
     	WindowManager.loadUI("views/ContinueScreen.fxml", new ContinueController(), SideBarID);
     	//faz mudar as cores dos botões neste caso é o Continuar a ver
     	IDContinuar.setStyle(corAzul);				
@@ -53,6 +70,7 @@ public class SideBarController {
     }
     @FXML
     void VoltarVer(ActionEvent event) {
+    	//carrega no centro o fxml, neste caso carrega no BacktoWatchScreen
     	WindowManager.loadUI("views/BacktoWatchScreen.fxml", new BacktoWatchController(), SideBarID);
     	//faz mudar as cores dos botões neste caso é o Voltar a ver
     	IDVoltar.setStyle(corAzul);

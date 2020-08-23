@@ -17,10 +17,7 @@ public class RegisterController {
     private TextField username;
 
     @FXML
-    private PasswordField password;
-
-    @FXML
-    private PasswordField passwordconf;
+    private PasswordField password,passwordconf;
     @FXML
     void ConfirmarRegisto(ActionEvent event) { //botão que faz confirmação do registo
     	if(!username.getText().isEmpty() && birthday.getValue()!=null && !password.getText().isEmpty() && !passwordconf.getText().isEmpty()) {

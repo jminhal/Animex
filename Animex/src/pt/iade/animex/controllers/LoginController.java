@@ -13,17 +13,23 @@ public class LoginController {
 
     @FXML
     private PasswordField password;
-
+    public static boolean eMod=false; //variavel para ir ao SideBarController meter o painel a true/false 
 
     @FXML
     void EntrarConta(ActionEvent event) {  // botão que filtra(se é user ou mod) e faz o login no ModScreen ou UserScreen
     	if(!username.getText().isEmpty()&&!password.getText().isEmpty()) {
     		if (LoginAndRegister.passwordVerify(username.getText(), password.getText())) {
     			if (LoginAndRegister.ModVerify(username.getText())) {
-    		    	WindowManager.openModerador();
+    		    	eMod=true;
+    		    	WindowManager.openUserPage();
+
     			}
     			else {
+    		    	eMod=false;
     				WindowManager.openUserPage();
+
+
+    				
     			}
     		}
     		else {
@@ -41,5 +47,6 @@ public class LoginController {
     	WindowManager.openMainWindow();
 
     }
+
 
 }

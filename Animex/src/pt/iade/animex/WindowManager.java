@@ -10,7 +10,6 @@ import pt.iade.animex.controllers.BacktoWatchController;
 import pt.iade.animex.controllers.ContinueController;
 import pt.iade.animex.controllers.LoginController;
 import pt.iade.animex.controllers.MainController;
-import pt.iade.animex.controllers.ModeradorController;
 import pt.iade.animex.controllers.RegisterController;
 import pt.iade.animex.controllers.SearchController;
 import pt.iade.animex.controllers.SideBarController;
@@ -24,10 +23,7 @@ public class WindowManager {
 		WindowManager.primaryStage = primaryStage;
 	}
 
-
-
-	
-	public static void openMainWindow() {
+	public static void openMainWindow() {//função que chama o primeiro fxml
 		openWindow("views/StartScreen.fxml",
 				primaryStage,new MainController());
 		primaryStage.show();
@@ -41,11 +37,6 @@ public class WindowManager {
 	public static void openRegister() {  // função que chama a pagina de registo
 		openWindow("views/RegisterScreen.fxml",
 				primaryStage,new RegisterController());
-		primaryStage.show();
-	}
-	public static void openModerador() {  // função que chama a pagina de registo
-		openWindow("views/ModeradorScreen.fxml",
-				primaryStage,new ModeradorController()); 
 		primaryStage.show();
 	}
 	
@@ -116,9 +107,9 @@ public class WindowManager {
 	public static void loadUI(String viewPath, Object controller, BorderPane pane) {
 		AnchorPane root = null;
 		try {
-			FXMLLoader loader = new FXMLLoader(Main.class.getResource(viewPath));
-			loader.setController(controller);
-			root = loader.load();
+			FXMLLoader loader = new FXMLLoader(Main.class.getResource(viewPath));// vai buscar o "link"
+			loader.setController(controller);  // define o controllador 
+			root = loader.load();//dá load
 			
 		} catch (Exception e) {
 			e.printStackTrace();
