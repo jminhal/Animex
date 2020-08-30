@@ -4,10 +4,9 @@ import java.util.ArrayList;
 
 public class Anime {
 	
-	public static ArrayList<Anime> jogoCache = new ArrayList<Anime>();
+	public static ArrayList<Anime> animeCache = new ArrayList<Anime>();
 	
 	private int anime_id;
-	private byte[] imagem;
 	private String nome;
 	private String link;
 	private String data;
@@ -17,13 +16,13 @@ public class Anime {
 	private String autor;
 	private String synopsis;
 	private String genre;
-
+	private byte[] imagem1;
 	
 
-	public Anime(int anime_id, byte[] imagem, String nome, String link, String data, int episodes, float score,
-			int seasons, String autor, String synopsis, String genre) {
+
+	public Anime(int anime_id, String nome, String link, String data, int episodes, float score,
+				 int seasons, String autor, String synopsis, String genre,byte[] imagem1) {
 		this.anime_id = anime_id;
-		this.imagem = imagem;
 		this.nome = nome;
 		this.link = link;
 		this.data = data;
@@ -33,6 +32,7 @@ public class Anime {
 		this.autor = autor;
 		this.synopsis = synopsis;
 		this.genre = genre;
+		this.imagem1 = imagem1;
 	}
 
 
@@ -42,9 +42,8 @@ public class Anime {
 	}
 
 
-
 	public byte[] getImagem() {
-		return imagem;
+		return imagem1;
 	}
 
 

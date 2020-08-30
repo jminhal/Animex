@@ -8,6 +8,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import pt.iade.animex.controllers.BacktoWatchController;
 import pt.iade.animex.controllers.ContinueController;
+import pt.iade.animex.controllers.InfoAnimeController;
 import pt.iade.animex.controllers.LoginController;
 import pt.iade.animex.controllers.MainController;
 import pt.iade.animex.controllers.RegisterController;
@@ -63,6 +64,11 @@ public class WindowManager {
 	public static void openContinue() {  //função que chama a pagina do continuar a ver
 		openWindow("views/ContinueScreen.fxml",
 				primaryStage,new ContinueController());
+		primaryStage.show();
+	}
+	public static void openinfoAnime() {  //função que chama a pagina do infoAnime
+		openWindow("views/InfoAnimeScreen.fxml",
+				primaryStage,new InfoAnimeController());
 		primaryStage.show();
 	}
 	

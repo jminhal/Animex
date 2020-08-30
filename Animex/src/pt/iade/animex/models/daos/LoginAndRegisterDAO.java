@@ -5,7 +5,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
-public class LoginAndRegister {
+
+
+public class LoginAndRegisterDAO {
 	
 	public static boolean userVerify(String user) {
 		boolean existe = false;
@@ -59,6 +61,7 @@ public class LoginAndRegister {
 	}
 	
 	public static boolean ModVerify(String user) {
+
 		boolean verificar = false;
 		try {
 			PreparedStatement statement = DBConnector.getConnection().prepareStatement("SELECT admin FROM utilizador where username = ?");
@@ -72,4 +75,19 @@ public class LoginAndRegister {
 			e.printStackTrace();
 		}
 		return verificar;
-	}}
+	}
+	
+	public static int userID(String nickname) {
+		try {
+			PreparedStatement statement = DBConnector.getConnection().prepareStatement("SELECT user_id FROM utilizador where username = '"+nickname+"'");
+			ResultSet results = statement.executeQuery();
+			if (results.next()) {
+				return results.getInt(1);
+			}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+	}

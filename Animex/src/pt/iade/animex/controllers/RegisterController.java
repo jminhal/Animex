@@ -6,7 +6,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import pt.iade.animex.WindowManager;
-import pt.iade.animex.models.daos.LoginAndRegister;
+import pt.iade.animex.models.daos.LoginAndRegisterDAO;
 
 
 public class RegisterController {
@@ -22,7 +22,7 @@ public class RegisterController {
     void ConfirmarRegisto(ActionEvent event) { //botão que faz confirmação do registo
     	if(!username.getText().isEmpty() && birthday.getValue()!=null && !password.getText().isEmpty() && !passwordconf.getText().isEmpty()) {
     		if(password.getText().equals(passwordconf.getText())) {
-    			LoginAndRegister.createAccount(username.getText(), password.getText(),birthday.getValue().toString());
+    			LoginAndRegisterDAO.createAccount(username.getText(), password.getText(),birthday.getValue().toString());
     		}
     	}
     	WindowManager.openMainWindow();

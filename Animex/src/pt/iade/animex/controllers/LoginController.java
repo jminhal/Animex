@@ -5,9 +5,11 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import pt.iade.animex.WindowManager;
 import pt.iade.animex.models.Dialog;
-import pt.iade.animex.models.daos.LoginAndRegister;
+import pt.iade.animex.models.daos.LoginAndRegisterDAO;
 
 public class LoginController {
+	
+	public static int userID;
     @FXML
     private TextField username;
 
@@ -18,15 +20,17 @@ public class LoginController {
     @FXML
     void EntrarConta(ActionEvent event) {  // botão que filtra(se é user ou mod) e faz o login no ModScreen ou UserScreen
     	if(!username.getText().isEmpty()&&!password.getText().isEmpty()) {
-    		if (LoginAndRegister.passwordVerify(username.getText(), password.getText())) {
-    			if (LoginAndRegister.ModVerify(username.getText())) {
+    		if (LoginAndRegisterDAO.passwordVerify(username.getText(), password.getText())) {
+    			if (LoginAndRegisterDAO.ModVerify(username.getText())) {
     		    	eMod=true;
     		    	WindowManager.openUserPage();
+    		    	userID = LoginAndRegisterDAO.userID(username.getText());
 
     			}
     			else {
     		    	eMod=false;
     				WindowManager.openUserPage();
+    				userID = LoginAndRegisterDAO.userID(username.getText());
 
 
     				
