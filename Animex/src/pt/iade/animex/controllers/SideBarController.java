@@ -51,8 +51,9 @@ public class SideBarController {
     }
     @FXML
     void Pesquisar(ActionEvent event) {
+    	continuar=false;
+    	voltaraver=false;
     	//carrega no centro o fxml, neste caso carrega no SearchScreen
-
     	WindowManager.loadUI("views/SearchScreen.fxml", new SearchController(), SideBarID);
     	//faz mudar as cores dos botões neste caso é o Pesquisar
     	IDPesquisar.setStyle(corVermelha);

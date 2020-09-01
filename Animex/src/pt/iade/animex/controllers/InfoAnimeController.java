@@ -2,7 +2,6 @@ package pt.iade.animex.controllers;
 
 import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -14,6 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import pt.iade.animex.WindowManager;
 import pt.iade.animex.models.Anime;
 import pt.iade.animex.models.daos.LoadAnimeDAO;
+import pt.iade.animex.models.daos.MoverAnimeDAO;
 
 
 public class InfoAnimeController {
@@ -27,14 +27,19 @@ public class InfoAnimeController {
     private TextArea test;
     @FXML
     private Button começarID, finalizadoID;
-
     @FXML
 	private void initialize() {
     	if(SideBarController.continuar) {
-    		começarID.setVisible(false);	
+    		começarID.setVisible(false);
+    		finalizadoID.setVisible(true);
     	}
     	else if(SideBarController.voltaraver) {
     		finalizadoID.setVisible(false);	
+    		começarID.setVisible(true);
+    	}
+    	else {
+    		finalizadoID.setVisible(true);	
+    		começarID.setVisible(true);
     	}
     	ArrayList<Anime> animeList = LoadAnimeDAO.getInfoAnime(LoadAnimeDAO.anime_id);
     	Link.setText(animeList.get(0).getLink());
@@ -48,23 +53,25 @@ public class InfoAnimeController {
     	Score.setText(String.valueOf(animeList.get(0).getScore()));
     	Image img = new Image(new ByteArrayInputStream(animeList.get(0).getImagem()));
     	IMG.setImage(img);
-    	
-		
-
 	}
-
     @FXML
-    void Finalizado(ActionEvent event) {
-    	LoadAnimeDAO.addAnimeContinue(LoginController.userID, LoadAnimeDAO.anime_id);
-    	
-
+    void Finalizado(ActionEvent event) {//voltar a ver
+       	if(SideBarController.continuar){
+       		MoverAnimeDAO.moverAnimeBacktoWatch(LoadAnimeDAO.anime_id, LoginController.userID);
+       	}
+       	else if(!SideBarController.voltaraver &&!SideBarController.continuar) {
+       		LoadAnimeDAO.addAnimeBacktoWatch(LoginController.userID, LoadAnimeDAO.anime_id);
+    	}
     }
-
     @FXML
-    void Começar(ActionEvent event) {
-       	LoadAnimeDAO.addAnimeBacktoWatch(LoginController.userID, LoadAnimeDAO.anime_id);
+    void Começar(ActionEvent event) {//continuar a ver
+    	if(SideBarController.voltaraver){
+    		MoverAnimeDAO.moverAnimeConinue(LoadAnimeDAO.anime_id, LoginController.userID);
+    	}
+    	else if(!SideBarController.voltaraver &&!SideBarController.continuar) {
+    		LoadAnimeDAO.addAnimeContinue(LoginController.userID, LoadAnimeDAO.anime_id);
+    	}
     }
-
     @FXML
     void Voltar(ActionEvent event) {
     	WindowManager.openUserPage();

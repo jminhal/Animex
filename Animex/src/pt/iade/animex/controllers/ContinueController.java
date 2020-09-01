@@ -16,10 +16,11 @@ public class ContinueController {
     @FXML
 	private void initialize() { 
 		
-		LoadAnimeDAO.loadAnime(ProcurarAnime.getText(),ListViewAnimes);
+		
+		LoadAnimeDAO.loadAnimeContinue(LoginController.userID,ProcurarAnime.getText(),ListViewAnimes);
 		ProcurarAnime.textProperty().addListener((observable, oldValue, newValue) -> {
 			
-    		LoadAnimeDAO.loadAnime(newValue, ListViewAnimes);
+			LoadAnimeDAO.loadAnimeContinue(LoginController.userID,ProcurarAnime.getText(),ListViewAnimes);
     	});
 	}
 
