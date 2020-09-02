@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import pt.iade.animex.controllers.BacktoWatchController;
 import pt.iade.animex.controllers.ContinueController;
 import pt.iade.animex.controllers.InfoAnimeController;
+import pt.iade.animex.controllers.ListController;
 import pt.iade.animex.controllers.LoginController;
 import pt.iade.animex.controllers.MainController;
 import pt.iade.animex.controllers.RegisterController;
@@ -19,17 +20,14 @@ import pt.iade.animex.controllers.MIController;
 public class WindowManager {
 
 	private static Stage primaryStage;
-
 	public static void setPrimaryStage(Stage primaryStage) {
 		WindowManager.primaryStage = primaryStage;
 	}
-
 	public static void openMainWindow() {//função que chama o primeiro fxml
 		openWindow("views/StartScreen.fxml",
 				primaryStage,new MainController());
 		primaryStage.show();
 	}
-	
 	public static void openUserPage() {   //função que chama a vista do user
 		openWindow("views/SideBarScreen.fxml",
 				primaryStage,new SideBarController());
@@ -40,7 +38,6 @@ public class WindowManager {
 				primaryStage,new RegisterController());
 		primaryStage.show();
 	}
-	
 	public static void openIM() {  // função que chama a pagina de interface do Moderador
 		openWindow("views/MIScreen.fxml",
 				primaryStage,new MIController()); 
@@ -71,10 +68,11 @@ public class WindowManager {
 				primaryStage,new InfoAnimeController());
 		primaryStage.show();
 	}
-	
-	
-	
-	
+	public static void openlist() {  //função que chama a pagina do infoAnime
+		openWindow("views/ListScreen.fxml",
+				primaryStage,new ListController());
+		primaryStage.show();
+	}
 	public static void openSceneInWindow(String viewPath, Stage window,
 			Object controller) {
 		try {
@@ -84,9 +82,6 @@ public class WindowManager {
 			e.printStackTrace();
 		}
 	}
-
-
-
 	public static void openWindow(String viewPath, Stage window, 
 			Object controller) {
 		try {
@@ -99,7 +94,6 @@ public class WindowManager {
 		}
 		
 	}
-
 	public static Parent createNewNodeTree(String viewPath, Object controller) throws IOException {
 		FXMLLoader loader = new FXMLLoader(
 				Main.class.getResource(viewPath));
@@ -107,9 +101,6 @@ public class WindowManager {
 		Parent root = loader.load();
 		return root;
 	}
-
-
-
 	public static void loadUI(String viewPath, Object controller, BorderPane pane) {
 		AnchorPane root = null;
 		try {

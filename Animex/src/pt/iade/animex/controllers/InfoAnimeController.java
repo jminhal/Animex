@@ -17,6 +17,7 @@ import pt.iade.animex.models.daos.MoverAnimeDAO;
 
 
 public class InfoAnimeController {
+	public static int numeroEpisodios;
     @FXML
     private AnchorPane searchAnimeInfo;
     @FXML
@@ -53,6 +54,7 @@ public class InfoAnimeController {
     	Score.setText(String.valueOf(animeList.get(0).getScore()));
     	Image img = new Image(new ByteArrayInputStream(animeList.get(0).getImagem()));
     	IMG.setImage(img);
+    	numeroEpisodios=animeList.get(0).getEpisodes();
 	}
     @FXML
     void Finalizado(ActionEvent event) {//voltar a ver
@@ -76,6 +78,9 @@ public class InfoAnimeController {
     void Voltar(ActionEvent event) {
     	WindowManager.openUserPage();
     }
-    
+    @FXML
+    void Tracking(ActionEvent event) {
+    	WindowManager.openlist();
+    }
 
 }
