@@ -7,19 +7,28 @@ import pt.iade.animex.models.Anime;
 import pt.iade.animex.models.daos.LoadAnimeDAO;
 
 public class BacktoWatchController {
-
+    /**
+	 * lista de Animes
+	 */
     @FXML
     private ListView<Anime> ListViewAnimes;
-
+    /**
+	 * lista de animes
+	 */
     @FXML
     private TextField ProcurarAnime;
-
+    /**
+     *Quando este controlador iniciar vai iniciar o initialize
+     *Vai carregar os Animes que estão na base de dados para a listview e se o utilizador escrever 
+     *alguma coisa na barra de pesquisa vai só aparecer os jogos começados pelas letras.
+     */
     @FXML
 	private void initialize() { 
-		
+    	//Vai carregar todos os Animes na listview
 		LoadAnimeDAO.loadAnimeBacktoWatch(LoginController.userID,ProcurarAnime.getText(),ListViewAnimes);
+		//Quando escreve alguma coisa na barra de pesquisa vai atualizar a listview
+    	//e vai aparecer os Animes comecados com as letras que o utilizador colocou na barra de procura
 		ProcurarAnime.textProperty().addListener((observable, oldValue, newValue) -> {
-			
 			LoadAnimeDAO.loadAnimeBacktoWatch(LoginController.userID,ProcurarAnime.getText(),ListViewAnimes);
     	});
 	

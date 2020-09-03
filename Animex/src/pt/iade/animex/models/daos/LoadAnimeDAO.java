@@ -23,6 +23,9 @@ import javafx.scene.layout.HBox;
 import javafx.util.Callback;
 import pt.iade.animex.WindowManager;
 import pt.iade.animex.models.Anime;
+/**
+ * Class responsavel por todas as queries para carregar os Animes.
+ */
 
 public class LoadAnimeDAO {
 	public static int anime_id = 0;

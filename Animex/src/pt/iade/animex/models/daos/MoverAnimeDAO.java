@@ -3,8 +3,11 @@ package pt.iade.animex.models.daos;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-
+/**
+ * Class responsavel por todas as queries para Mover Animes.
+ */
 public class MoverAnimeDAO {
+	//Metodo para mover jogo do continuar a ver para o voltarver
 	public static void moverAnimeBacktoWatch(int anime_id, int user_id) {
 		try {
 			//Adicionar o jogo na nova categoria
@@ -27,6 +30,7 @@ public class MoverAnimeDAO {
 			e.printStackTrace();
 		}
 	}
+	//Metodo para mover jogo do voltarver a ver para o Continuar
 	public static void moverAnimeConinue(int anime_id, int user_id) {
 		try {
 			//Adicionar o jogo na nova categoria
