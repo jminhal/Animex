@@ -17,10 +17,14 @@ import pt.iade.animex.models.daos.LoginAndRegisterDAO;
 public class RegisterController {
     @FXML
     private DatePicker birthday;
-
+    /**
+	 * ID da lable da username
+	 */
     @FXML
     private TextField username;
-
+    /**
+	 * ID da lable da password
+	 */
     @FXML
     private PasswordField password,passwordconf;
 	/**
@@ -40,6 +44,10 @@ public class RegisterController {
     }
 
     @FXML
+	/**
+	 * Botão para voltar à pagina anterior
+	 * @param event para clicar
+	 */
     void Voltar(ActionEvent event) { 	    	//botão de voltar atrás na pagina do registo
     	WindowManager.openMainWindow();
     }

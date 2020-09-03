@@ -3,9 +3,7 @@ package pt.iade.animex.models;
 import java.util.ArrayList;
 
 public class Anime {
-	
 	public static ArrayList<Anime> animeCache = new ArrayList<Anime>();
-	
 	private int anime_id;
 	private String nome;
 	private String link;

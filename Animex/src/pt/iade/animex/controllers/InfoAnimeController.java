@@ -6,10 +6,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import pt.iade.animex.WindowManager;
 import pt.iade.animex.models.Anime;
 import pt.iade.animex.models.daos.LoadAnimeDAO;
@@ -17,31 +15,47 @@ import pt.iade.animex.models.daos.MoverAnimeDAO;
 
 
 public class InfoAnimeController {
+    /**
+	 * variavel onde vai guardar o numero de episodios para depois enviar para o tracking
+	 */
 	public static int numeroEpisodios;
-    @FXML
-    private AnchorPane searchAnimeInfo;
+    /**
+	 * ImageView para aprecer a imagem associada ao anime
+	 */
     @FXML
     private ImageView IMG;
+    /**
+	 * lable para aparecer a informação do anime
+	 */
     @FXML
     private Label Link,Seasons,EPS,Sinopse,Genero,Data,Score,Nome,Autor;
-    @FXML
-    private TextArea test;
+    /**
+	 * botões para mover o anime, para a secção de voltar a ver ou continuar a ver 
+	 */
     @FXML
     private Button começarID, finalizadoID;
+    /**
+    *Quando este controlador iniciar vai iniciar o initialize
+    *este metedo é para fazer aparecer/desaparecer os botões começarID e finalizadoID para move os Animes
+    */
     @FXML
 	private void initialize() {
+    	//se tivermos no continuar a ver aparecer o botão finalizado
     	if(SideBarController.continuar) {
     		começarID.setVisible(false);
     		finalizadoID.setVisible(true);
     	}
+    	//se tivermos no voltar a ver aparecer o botão Começar
     	else if(SideBarController.voltaraver) {
     		finalizadoID.setVisible(false);	
     		começarID.setVisible(true);
     	}
     	else {
+    		//se tivermos no procurar aparece o botão finalizado e Começar
     		finalizadoID.setVisible(true);	
     		começarID.setVisible(true);
     	}
+       // coloca a informação de um certo anime no arraylist ao carregar esse cenario ele coloca a informação nas lables
     	ArrayList<Anime> animeList = LoadAnimeDAO.getInfoAnime(LoadAnimeDAO.anime_id);
     	Link.setText(animeList.get(0).getLink());
      	Nome.setText(animeList.get(0).getNome());
@@ -56,6 +70,10 @@ public class InfoAnimeController {
     	IMG.setImage(img);
     	numeroEpisodios=animeList.get(0).getEpisodes();
 	}
+	/**
+	 * Botao para mover o Anime
+	 * @param event para clicar
+	 */
     @FXML
     void Finalizado(ActionEvent event) {//voltar a ver
        	if(SideBarController.continuar){
@@ -65,6 +83,10 @@ public class InfoAnimeController {
        		LoadAnimeDAO.addAnimeBacktoWatch(LoginController.userID, LoadAnimeDAO.anime_id);
     	}
     }
+	/**
+	 * Botao para mover o Anime
+	 * @param event para clicar
+	 */
     @FXML
     void Começar(ActionEvent event) {//continuar a ver
     	if(SideBarController.voltaraver){
@@ -74,10 +96,18 @@ public class InfoAnimeController {
     		LoadAnimeDAO.addAnimeContinue(LoginController.userID, LoadAnimeDAO.anime_id);
     	}
     }
+	/**
+	 * Botao para Voltar à pagina anterior
+	 * @param event para clicar
+	 */
     @FXML
     void Voltar(ActionEvent event) {
     	WindowManager.openUserPage();
     }
+	/**
+	 * Botao para ir para o tracking do anime
+	 * @param event para clicar
+	 */
     @FXML
     void Tracking(ActionEvent event) {
     	WindowManager.openlist();

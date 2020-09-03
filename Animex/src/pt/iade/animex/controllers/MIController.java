@@ -21,20 +21,32 @@ import pt.iade.animex.models.daos.MIDAO;
 
 public class MIController {
     private BufferedImage bufferedImage;
-    
-    @FXML
-	private void initialize() { 
-    	genre.getItems().addAll(AnimeGenre.values());
-    	
-    }
+    /**
+     * ID do combobox
+     */
     @FXML
     private ComboBox<AnimeGenre> genre;
-
+    /**
+	 * TextField para escrever a informação do anime
+	 */
     @FXML
     private TextField nome,autor,episodes,score,synopsis,link,seasons;
+    
     @FXML
     private DatePicker data;
-    
+    /**
+     *Quando este controlador iniciar vai iniciar o initialize
+     */
+    @FXML
+	private void initialize() { 
+    	//Vai adicionar as os generos de anime na ComboBox
+    	genre.getItems().addAll(AnimeGenre.values());  	
+    }
+    /**
+     * Ao clicar no botao "Carregar" vai abrir o File explorer do computador
+     * e vai ser possivel fazer o upload da imagem
+     * @param event para clicar
+     */
 
 	@FXML 
     void CarregarImagem(ActionEvent event) {      // botão para procurar a imagem no pc
@@ -59,6 +71,12 @@ public class MIController {
             }
         }
     }
+	
+	/**
+	 * Quando o utilizador clica no botao para adicionar o Anime, vai verificar se todos os parametros estao preenchidos
+	 * se estiverem vai passar a imagem que fez upload para uma byte[] e adicionar o novo Anime na base de dados.
+	 * @param event para clicar
+	 */
     @FXML
     void Confirmar(ActionEvent event) {  // botão para confimar o upload da imagem do anime
     	
@@ -92,13 +110,19 @@ public class MIController {
 
     
     }
-
+	/**
+	 * Botao sair da conta
+	 * @param event para clicar
+	 */
     @FXML
     void LogOut(ActionEvent event) {	// botão para sair da conta e volta para o start
     	WindowManager.openMainWindow();
 
     }
-
+	/**
+	 * Botao voltar atrás
+	 * @param event para clicar
+	 */
 
     @FXML
     void VoltarAnimeX(ActionEvent event) {	// botão para voltar para o ModeradorScreen

@@ -9,14 +9,13 @@ import pt.iade.animex.models.daos.LoadAnimeDAO;
 
 public class SearchController {
 
-
     /**
- 	 * lista de animes
- 	 */
+	 * ID da lable de procurar anime
+	 */
     @FXML
     private TextField ProcurarAnime;
     /**
-	 * lista de Animes
+	 * ID lista de Animes
 	 */
     @FXML
     private ListView<Anime> ListViewAnimes;

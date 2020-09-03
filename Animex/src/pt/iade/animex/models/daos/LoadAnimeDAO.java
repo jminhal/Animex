@@ -29,12 +29,8 @@ import pt.iade.animex.models.Anime;
 
 public class LoadAnimeDAO {
 	public static int anime_id = 0;
-	public static void loadAnime(String procurarAnime,ListView<Anime> ListViewAnimes) {
-			
-		
-		ObservableList<Anime> animeList = FXCollections.observableArrayList();
-
-	
+	public static void loadAnime(String procurarAnime,ListView<Anime> ListViewAnimes) {	
+		ObservableList<Anime> animeList = FXCollections.observableArrayList();	
 		try {
 			//%or% Finds any values that have "or" in any position
 			PreparedStatement statement = DBConnector.getConnection()
@@ -42,10 +38,6 @@ public class LoadAnimeDAO {
 			statement.setString(1, procurarAnime + "%");
 			ResultSet results = statement.executeQuery();
 			while(results.next()){
-				
-				
-				
-				
 				int anime_id = results.getInt("anime_id");
 				String nome= results.getString("nome");
 				String link= results.getString("link");
@@ -58,11 +50,8 @@ public class LoadAnimeDAO {
 				String genre = results.getString("genre");
                 InputStream imagem = results.getBinaryStream("imagem");
                 byte[] imagem1 = getBytesFromInputStream(imagem);
-                
                 animeList.add(new Anime(anime_id,nome,link,data,episodes,score,seasons,autor,synopsis,genre,imagem1));
-
 			}
-			
 			ListViewAnimes.setCellFactory(new Callback<ListView<Anime>,ListCell<Anime>>() {
 
 				@Override
@@ -80,7 +69,7 @@ public class LoadAnimeDAO {
 								
 								Button btnAdicionar = new Button("Mais informação");
 								btnAdicionar.setOnAction(new EventHandler<ActionEvent>() {
-						            @Override  //Metodo para abrir a janela de adicionar jogo na Biblioteca, Arquivo ou Lista de desejos
+						            @Override  //Metodo para abrir o openInfoAnime
 						            public void handle(ActionEvent event) {  
 						            	anime_id = anime.getAnime_id();
 						            	WindowManager.openinfoAnime();
@@ -160,7 +149,7 @@ public class LoadAnimeDAO {
 								
 								Button btnAdicionar = new Button("Mais informação");
 								btnAdicionar.setOnAction(new EventHandler<ActionEvent>() {
-						            @Override  //Metodo para abrir a janela de adicionar jogo na Biblioteca, Arquivo ou Lista de desejos
+						            @Override  //Metodo para abrir o openInfoAnime
 						            public void handle(ActionEvent event) {  
 						            	
 						              	anime_id = anime.getAnime_id();
@@ -241,7 +230,7 @@ public class LoadAnimeDAO {
 								
 								Button btnAdicionar = new Button("Mais informação");
 								btnAdicionar.setOnAction(new EventHandler<ActionEvent>() {
-						            @Override  //Metodo para abrir a janela de adicionar jogo na Biblioteca, Arquivo ou Lista de desejos
+								 @Override  //Metodo para abrir o openInfoAnime
 						            public void handle(ActionEvent event) {  
 						            	
 						              	anime_id = anime.getAnime_id();
@@ -280,16 +269,16 @@ public class LoadAnimeDAO {
 	}
 	public static void addAnimeBacktoWatch(int user_id, int anime_id) {
 		try {
-			//Vai verificar se o utilizador ja tem esse jogo adicionado na biblioteca
+			//Vai verificar se o utilizador ja tem esse anime adicionado no voltarver
 			PreparedStatement statement = DBConnector.getConnection()
 					.prepareStatement("select anime_id from voltarver where anime_id = ? and user_id = ?");
 			statement.setInt(1, anime_id);
 			statement.setInt(2, user_id);
 			ResultSet results = statement.executeQuery();
-			//Se o jogador nao tiver esse jogo ja adicionado na bilioteca vai adiciona-lo
+			//Se o utilizador nao tiver esse anime ja adicionado no voltarver vai adiciona-lo
 			if (!results.next()) {
 				
-				//Vai fazer o insert do jogo na biblioteca
+				//Vai fazer o insert do anime voltarver
 				PreparedStatement statement2 = DBConnector.getConnection()
 						.prepareStatement("INSERT INTO voltarver (anime_id, user_id) VALUES (?,?)");
 				statement2.setInt(1, anime_id);
@@ -307,16 +296,16 @@ public class LoadAnimeDAO {
 	}
 	public static void addAnimeContinue(int user_id, int anime_id) {
 		try {
-			//Vai verificar se o utilizador ja tem esse jogo adicionado na biblioteca
+			//Vai verificar se o utilizador ja tem esse anime adicionado no continuarver
 			PreparedStatement statement = DBConnector.getConnection()
 					.prepareStatement("select anime_id from continuarver where anime_id = ? and user_id = ?");
 			statement.setInt(1, anime_id);
 			statement.setInt(2, user_id);
 			ResultSet results = statement.executeQuery();
-			//Se o jogador nao tiver esse jogo ja adicionado na bilioteca vai adiciona-lo
+			//Se o utilizador nao tiver esse anime ja adicionado no continuarver vai adiciona-lo
 			if (!results.next()) {
 				
-				//Vai fazer o insert do jogo na biblioteca
+				//Vai fazer o insert do anime continuarver
 				PreparedStatement statement2 = DBConnector.getConnection()
 						.prepareStatement("INSERT INTO continuarver (anime_id, user_id) VALUES (?,?)");
 				statement2.setInt(1, anime_id);
@@ -332,9 +321,13 @@ public class LoadAnimeDAO {
 			e.printStackTrace();
 		}	
 	}
+	/**
+	 *  Metedo que converter a imagem em binario
+	 * @param is imagem 
+	 * @return da imagem em binario
+	 * @throws IOException imagem 
+	 */
 	public static byte[] getBytesFromInputStream(InputStream is) throws IOException {
-
-
     	ByteArrayOutputStream os = new ByteArrayOutputStream(); 
     	byte[] buffer = new byte[0xFFFF];
     	for (int len = is.read(buffer); len != -1; len = is.read(buffer)) { 
@@ -342,6 +335,12 @@ public class LoadAnimeDAO {
     	}
     	return os.toByteArray();
     }
+	
+	/**
+	 * Vai buscar a informação de um certo anime 
+	 * @param animeID ID do anime
+	 * @return ArrayList
+	 */
 	public static ArrayList<Anime> getInfoAnime(int animeID) {
 		ArrayList<Anime> animeList = new ArrayList<Anime>();
 
@@ -351,10 +350,6 @@ public class LoadAnimeDAO {
 			statement.setInt(1, animeID );
 			ResultSet results = statement.executeQuery();
 			if(results.next()){
-				
-				
-				
-				
 				int anime_id = results.getInt("anime_id");
 				String nome= results.getString("nome");
 				String link= results.getString("link");

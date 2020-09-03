@@ -11,8 +11,6 @@ import pt.iade.animex.models.daos.DBConnector;
  *do que é que já vimos e o que nos encontramos a ver. Esta aplicação terá uma base de dados onde os utilizadores poderão
  *pesquisar pelos seus animes.
  * @author JorgeMinhalma
- *
- * 
  */ 
 
 public class Main extends Application {

@@ -109,20 +109,12 @@ public class WindowManager {
 	 * Metodo vai servir para abrir a listview.
 	 *
 	 */
-	public static void openlist() {  //função que chama a pagina do infoAnime
+	public static void openlist() {  //função que chama a pagina do listview
 		openWindow("views/ListScreen.fxml",
 				primaryStage,new ListController());
 		primaryStage.show();
 	}
-	public static void openSceneInWindow(String viewPath, Stage window,
-			Object controller) {
-		try {
-			Parent root = createNewNodeTree(viewPath, controller);
-			window.getScene().setRoot(root);
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-	}
+
 	/**
 	 * Declaracao do metodo para abrir nova janela com o controlador
 	 * @param viewPath local do janela
@@ -144,6 +136,10 @@ public class WindowManager {
 		}
 		
 	}
+	/**
+	 * 
+	 *Metedo que vai adicionar o cenario(FXML) ao controlador
+	 */
 	public static Parent createNewNodeTree(String viewPath, Object controller) throws IOException {
 		FXMLLoader loader = new FXMLLoader(
 				Main.class.getResource(viewPath));
