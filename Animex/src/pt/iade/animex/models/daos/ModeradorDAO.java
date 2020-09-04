@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
-public class MIDAO {
+public class ModeradorDAO {
 	public static void addAnime(String nome, String autor,String data, float score,int episodes,int seasons,String genre, String synopsis,String link, byte[] imagem) {
 		InputStream imagem1 = new ByteArrayInputStream(imagem);
 		try {

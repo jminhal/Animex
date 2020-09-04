@@ -55,9 +55,9 @@
             <Font size="15.0" />
          </font></Label>
       <ImageView fx:id="IMG" fitHeight="160.0" fitWidth="108.0" layoutX="478.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="começarID" layoutX="17.0" layoutY="345.0" mnemonicParsing="false" onAction="#Começar" prefHeight="41.0" prefWidth="112.0" style="-fx-background-color: #0e7295; -fx-border-color: #fff;" text="Começar a ver" textFill="WHITE" />
-      <Button fx:id="finalizadoID" layoutX="468.0" layoutY="345.0" mnemonicParsing="false" onAction="#Finalizado" prefHeight="42.0" prefWidth="112.0" style="-fx-background-color: #0e7295; -fx-border-color: #fff;" text="Finalizado" textFill="WHITE" />
-      <Button layoutX="469.0" layoutY="9.0" mnemonicParsing="false" onAction="#Voltar" prefHeight="41.0" prefWidth="112.0" style="-fx-background-color: #0e7295; -fx-border-color: #fff;" text="Voltar" textFill="WHITE" />
+      <Button fx:id="btnComecar" layoutX="17.0" layoutY="345.0" mnemonicParsing="false" onAction="#comecar" prefHeight="41.0" prefWidth="112.0" style="-fx-background-color: #0e7295; -fx-border-color: #fff;" text="Continuar a Ver" textFill="WHITE" />
+      <Button fx:id="btnVoltarVer" layoutX="468.0" layoutY="345.0" mnemonicParsing="false" onAction="#voltarVer" prefHeight="42.0" prefWidth="112.0" style="-fx-background-color: #0e7295; -fx-border-color: #fff;" text="Voltar a ver" textFill="WHITE" />
+      <Button layoutX="469.0" layoutY="9.0" mnemonicParsing="false" onAction="#voltar" prefHeight="41.0" prefWidth="112.0" style="-fx-background-color: #0e7295; -fx-border-color: #fff;" text="Voltar" textFill="WHITE" />
       <Label layoutX="36.0" layoutY="97.0" text="Score" textFill="WHITE">
          <font>
             <Font size="15.0" />
@@ -93,6 +93,6 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <Button layoutX="222.0" layoutY="345.0" mnemonicParsing="false" onAction="#Tracking" prefHeight="41.0" prefWidth="112.0" style="-fx-background-color: #0e7295; -fx-border-color: #fff;" text="Tracking" textFill="WHITE" />
+      <Button layoutX="222.0" layoutY="345.0" mnemonicParsing="false" onAction="#tracking" prefHeight="41.0" prefWidth="112.0" style="-fx-background-color: #0e7295; -fx-border-color: #fff;" text="Tracking" textFill="WHITE" />
    </children>
 </AnchorPane>

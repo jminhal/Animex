@@ -6,16 +6,16 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import pt.iade.animex.controllers.BacktoWatchController;
-import pt.iade.animex.controllers.ContinueController;
+import pt.iade.animex.controllers.VoltarVerController;
+import pt.iade.animex.controllers.ContinuarVerController;
 import pt.iade.animex.controllers.InfoAnimeController;
-import pt.iade.animex.controllers.ListController;
+import pt.iade.animex.controllers.TrackingController;
 import pt.iade.animex.controllers.LoginController;
 import pt.iade.animex.controllers.MainController;
 import pt.iade.animex.controllers.RegisterController;
-import pt.iade.animex.controllers.SearchController;
+import pt.iade.animex.controllers.PesquisarController;
 import pt.iade.animex.controllers.SideBarController;
-import pt.iade.animex.controllers.MIController;
+import pt.iade.animex.controllers.ModeradorController;
 /**
  * Esta classe vai servir para carregar um nova janela com o respetivo controlador
  * e tambem fazer o load de um FXML dentro de um mesmo cenario.
@@ -56,9 +56,9 @@ public class WindowManager {
 	/**
 	 * Metodo vai servir para abrir a interface do Moderador.
 	 */
-	public static void openIM() {  // função que chama a pagina de interface do Moderador
-		openWindow("views/MIScreen.fxml",
-				primaryStage,new MIController()); 
+	public static void openModerador() {  // função que chama a pagina de interface do Moderador
+		openWindow("views/ModeradorScreen.fxml",
+				primaryStage,new ModeradorController()); 
 		primaryStage.show();
 	}
 	/**
@@ -72,27 +72,27 @@ public class WindowManager {
 	/**
 	 * Metodo vai servir para abrir o voltar a ver.
 	 */
-	public static void openBacktoWatch() {   //função que chama a pagina do voltar a ver
-		openWindow("views/BacktoWatchScreen.fxml",
-				primaryStage,new BacktoWatchController());
+	public static void openVoltarVer() {   //função que chama a pagina do voltar a ver
+		openWindow("views/VoltarVerScreen.fxml",
+				primaryStage,new VoltarVerController());
 		primaryStage.show();
 	}
 	/**
 	 * Metodo vai servir para abrir o pesquisar.
 	 *
 	 */
-	public static void openSearch() {   //função que chama a pagina do pesquisar
-		openWindow("views/SearchScreen.fxml",
-				primaryStage,new SearchController());
+	public static void openPesquisar() {   //função que chama a pagina do pesquisar
+		openWindow("views/PesquisarScreen.fxml",
+				primaryStage,new PesquisarController());
 		primaryStage.show();
 	}
 	/**
 	 * Metodo vai servir para abrir o continuar a ver.
 	 *
 	 */
-	public static void openContinue() {  //função que chama a pagina do continuar a ver
-		openWindow("views/ContinueScreen.fxml",
-				primaryStage,new ContinueController());
+	public static void openContinuarVer() {  //função que chama a pagina do continuar a ver
+		openWindow("views/ContinuarVerScreen.fxml",
+				primaryStage,new ContinuarVerController());
 		primaryStage.show();
 	}
 	
@@ -109,9 +109,9 @@ public class WindowManager {
 	 * Metodo vai servir para abrir a listview.
 	 *
 	 */
-	public static void openlist() {  //função que chama a pagina do listview
-		openWindow("views/ListScreen.fxml",
-				primaryStage,new ListController());
+	public static void openTracking() {  //função que chama a pagina do listview
+		openWindow("views/TrackingScreen.fxml",
+				primaryStage,new TrackingController());
 		primaryStage.show();
 	}
 

@@ -49,7 +49,7 @@ public class LoadTrackingDAO {
             }
 			int numeroEpisodiosAnime = InfoAnimeController.numeroEpisodios;
 			for (int i = 1; i < numeroEpisodiosAnime+1; i++) {
-				if (episodiosVistos.contains(new Episode(i, true))) {
+				if (!episodiosVistos.contains(new Episode(i, true))) {
                     episodiosVistos.add(new Episode(i, false));
 				}
 			}

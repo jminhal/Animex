@@ -33,7 +33,7 @@ public class InfoAnimeController {
 	 * botões para mover o anime, para a secção de voltar a ver ou continuar a ver 
 	 */
     @FXML
-    private Button começarID, finalizadoID;
+    private Button btnComecar, btnVoltarVer;
     /**
     *Quando este controlador iniciar vai iniciar o initialize
     *este metedo é para fazer aparecer/desaparecer os botões começarID e finalizadoID para move os Animes
@@ -41,19 +41,19 @@ public class InfoAnimeController {
     @FXML
 	private void initialize() {
     	//se tivermos no continuar a ver aparecer o botão finalizado
-    	if(SideBarController.continuar) {
-    		começarID.setVisible(false);
-    		finalizadoID.setVisible(true);
+    	if(SideBarController.continuarver) {
+    		btnComecar.setVisible(false);
+    		btnVoltarVer.setVisible(true);
     	}
     	//se tivermos no voltar a ver aparecer o botão Começar
     	else if(SideBarController.voltaraver) {
-    		finalizadoID.setVisible(false);	
-    		começarID.setVisible(true);
+    		btnVoltarVer.setVisible(false);	
+    		btnComecar.setVisible(true);
     	}
     	else {
     		//se tivermos no procurar aparece o botão finalizado e Começar
-    		finalizadoID.setVisible(true);	
-    		começarID.setVisible(true);
+    		btnVoltarVer.setVisible(true);	
+    		btnComecar.setVisible(true);
     	}
        // coloca a informação de um certo anime no arraylist ao carregar esse cenario ele coloca a informação nas lables
     	ArrayList<Anime> animeList = LoadAnimeDAO.getInfoAnime(LoadAnimeDAO.anime_id);
@@ -75,12 +75,12 @@ public class InfoAnimeController {
 	 * @param event para clicar
 	 */
     @FXML
-    void Finalizado(ActionEvent event) {//voltar a ver
-       	if(SideBarController.continuar){
-       		MoverAnimeDAO.moverAnimeBacktoWatch(LoadAnimeDAO.anime_id, LoginController.userID);
+    void voltarVer(ActionEvent event) {//voltar a ver
+       	if(SideBarController.continuarver){
+       		MoverAnimeDAO.moverAnimeVoltarVer(LoadAnimeDAO.anime_id, LoginController.userID);
        	}
-       	else if(!SideBarController.voltaraver &&!SideBarController.continuar) {
-       		LoadAnimeDAO.addAnimeBacktoWatch(LoginController.userID, LoadAnimeDAO.anime_id);
+       	else if(!SideBarController.voltaraver &&!SideBarController.continuarver) {
+       		LoadAnimeDAO.addAnimeVoltarVer(LoginController.userID, LoadAnimeDAO.anime_id);
     	}
     }
 	/**
@@ -88,12 +88,12 @@ public class InfoAnimeController {
 	 * @param event para clicar
 	 */
     @FXML
-    void Começar(ActionEvent event) {//continuar a ver
+    void comecar(ActionEvent event) {//continuar a ver
     	if(SideBarController.voltaraver){
-    		MoverAnimeDAO.moverAnimeConinue(LoadAnimeDAO.anime_id, LoginController.userID);
+    		MoverAnimeDAO.moverAnimeContinuarVer(LoadAnimeDAO.anime_id, LoginController.userID);
     	}
-    	else if(!SideBarController.voltaraver &&!SideBarController.continuar) {
-    		LoadAnimeDAO.addAnimeContinue(LoginController.userID, LoadAnimeDAO.anime_id);
+    	else if(!SideBarController.voltaraver &&!SideBarController.continuarver) {
+    		LoadAnimeDAO.addAnimeContinuarVer(LoginController.userID, LoadAnimeDAO.anime_id);
     	}
     }
 	/**
@@ -101,7 +101,7 @@ public class InfoAnimeController {
 	 * @param event para clicar
 	 */
     @FXML
-    void Voltar(ActionEvent event) {
+    void voltar(ActionEvent event) {
     	WindowManager.openUserPage();
     }
 	/**
@@ -109,8 +109,8 @@ public class InfoAnimeController {
 	 * @param event para clicar
 	 */
     @FXML
-    void Tracking(ActionEvent event) {
-    	WindowManager.openlist();
+    void tracking(ActionEvent event) {
+    	WindowManager.openTracking();
     }
 
 }

@@ -14,12 +14,12 @@ import javafx.stage.FileChooser;
 import pt.iade.animex.WindowManager;
 import pt.iade.animex.models.AnimeGenre;
 import pt.iade.animex.models.Dialog;
-import pt.iade.animex.models.daos.MIDAO;
+import pt.iade.animex.models.daos.ModeradorDAO;
 
 
 
 
-public class MIController {
+public class ModeradorController {
     private BufferedImage bufferedImage;
     /**
      * ID do combobox
@@ -91,7 +91,7 @@ public class MIController {
 				byte[] imageInByte = baos.toByteArray();
 				baos.close();
 				//Vai adicionar o jogo na base de dados
-				MIDAO.addAnime(nome.getText(), autor.getText(), data.getValue().toString(),Float.valueOf(score.getText()),
+				ModeradorDAO.addAnime(nome.getText(), autor.getText(), data.getValue().toString(),Float.valueOf(score.getText()),
 	    				Integer.valueOf(episodes.getText()),Integer.valueOf(seasons.getText()),String.valueOf(genre.getSelectionModel().getSelectedItem()), 
 	    				synopsis.getText(), link.getText(),imageInByte);
 			} catch (IOException e) {

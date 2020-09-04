@@ -6,7 +6,7 @@ import javafx.scene.control.TextField;
 import pt.iade.animex.models.Anime;
 import pt.iade.animex.models.daos.LoadAnimeDAO;
 
-public class BacktoWatchController {
+public class VoltarVerController {
     /**
 	 * ID lista de Animes
 	 */
@@ -25,11 +25,11 @@ public class BacktoWatchController {
     @FXML
 	private void initialize() { 
     	//Vai carregar todos os Animes na listview
-		LoadAnimeDAO.loadAnimeBacktoWatch(LoginController.userID,ProcurarAnime.getText(),ListViewAnimes);
+		LoadAnimeDAO.loadAnimeVoltarVer(LoginController.userID,ProcurarAnime.getText(),ListViewAnimes);
 		//Quando escreve alguma coisa na barra de pesquisa vai atualizar a listview
     	//e vai aparecer os Animes comecados com as letras que o utilizador colocou na barra de procura
 		ProcurarAnime.textProperty().addListener((observable, oldValue, newValue) -> {
-			LoadAnimeDAO.loadAnimeBacktoWatch(LoginController.userID,ProcurarAnime.getText(),ListViewAnimes);
+			LoadAnimeDAO.loadAnimeVoltarVer(LoginController.userID,ProcurarAnime.getText(),ListViewAnimes);
     	});
 	
 	}

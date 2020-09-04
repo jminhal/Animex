@@ -8,7 +8,7 @@ import java.sql.SQLException;
  */
 public class MoverAnimeDAO {
 	//Metodo para mover jogo do continuar a ver para o voltarver
-	public static void moverAnimeBacktoWatch(int anime_id, int user_id) {
+	public static void moverAnimeVoltarVer(int anime_id, int user_id) {
 		try {
 			//Adicionar o jogo na nova categoria
 			PreparedStatement statement3 = DBConnector.getConnection().prepareStatement("INSERT INTO voltarver (anime_id, user_id) VALUES (?,?)");
@@ -31,7 +31,7 @@ public class MoverAnimeDAO {
 		}
 	}
 	//Metodo para mover jogo do voltarver a ver para o Continuar
-	public static void moverAnimeConinue(int anime_id, int user_id) {
+	public static void moverAnimeContinuarVer(int anime_id, int user_id) {
 		try {
 			//Adicionar o jogo na nova categoria
 			PreparedStatement statement3 = DBConnector.getConnection().prepareStatement("INSERT INTO continuarver (anime_id, user_id) VALUES (?,?)");

@@ -25,19 +25,19 @@
                </children>
             </Pane>
             <Line endX="100.0" startX="-100.0" stroke="WHITE" />
-            <Button fx:id="IDPesquisar" mnemonicParsing="false" onAction="#Pesquisar" prefHeight="80.0" prefWidth="202.0" style="-fx-background-color: #0e7295;" text="Pesquisar" textFill="WHITE">
+            <Button fx:id="btnPesquisar" mnemonicParsing="false" onAction="#pesquisar" prefHeight="80.0" prefWidth="202.0" style="-fx-background-color: #0e7295;" text="Pesquisar" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
             <Line endX="100.0" startX="-100.0" stroke="WHITE" />
-            <Button fx:id="IDContinuar" mnemonicParsing="false" onAction="#ContinuarVer" prefHeight="79.0" prefWidth="203.0" style="-fx-background-color: #0e7295;" text="Continuar a ver" textFill="WHITE">
+            <Button fx:id="btnContinuarVer" mnemonicParsing="false" onAction="#continuarVer" prefHeight="79.0" prefWidth="203.0" style="-fx-background-color: #0e7295;" text="Continuar a ver" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
             <Line endX="100.0" startX="-100.0" stroke="WHITE" />
-            <Button fx:id="IDVoltar" mnemonicParsing="false" onAction="#VoltarVer" prefHeight="81.0" prefWidth="205.0" style="-fx-background-color: #0e7295;" text="Voltar a ver" textFill="WHITE">
+            <Button fx:id="btnVoltarVer" mnemonicParsing="false" onAction="#voltarVer" prefHeight="81.0" prefWidth="205.0" style="-fx-background-color: #0e7295;" text="Voltar a ver" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>

@@ -105,7 +105,7 @@ public class LoadAnimeDAO {
 			e.printStackTrace();
 		}
 	}
-	public static void loadAnimeContinue(int user_id, String animePesquisado, ListView<Anime> listview) {
+	public static void loadAnimeContinuarVer(int user_id, String animePesquisado, ListView<Anime> listview) {
 		ObservableList<Anime> animeList = FXCollections.observableArrayList();
 		
 		try {
@@ -186,7 +186,7 @@ public class LoadAnimeDAO {
 			e.printStackTrace();
 		}
 	}
-	public static void loadAnimeBacktoWatch(int user_id, String animePesquisado, ListView<Anime> listview) {
+	public static void loadAnimeVoltarVer(int user_id, String animePesquisado, ListView<Anime> listview) {
 		ObservableList<Anime> animeList = FXCollections.observableArrayList();
 		
 		try {
@@ -267,7 +267,7 @@ public class LoadAnimeDAO {
 			e.printStackTrace();
 		}
 	}
-	public static void addAnimeBacktoWatch(int user_id, int anime_id) {
+	public static void addAnimeVoltarVer(int user_id, int anime_id) {
 		try {
 			//Vai verificar se o utilizador ja tem esse anime adicionado no voltarver
 			PreparedStatement statement = DBConnector.getConnection()
@@ -294,7 +294,7 @@ public class LoadAnimeDAO {
 			e.printStackTrace();
 		}
 	}
-	public static void addAnimeContinue(int user_id, int anime_id) {
+	public static void addAnimeContinuarVer(int user_id, int anime_id) {
 		try {
 			//Vai verificar se o utilizador ja tem esse anime adicionado no continuarver
 			PreparedStatement statement = DBConnector.getConnection()
