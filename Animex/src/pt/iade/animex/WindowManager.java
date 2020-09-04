@@ -134,8 +134,11 @@ public class WindowManager {
 		
 	}
 	/**
-	 * 
-	 *Metedo que vai adicionar o cenario(FXML) ao controlador
+	 * 	 *Metedo que vai adicionar o cenario(FXML) ao controlador
+	 * @param viewPath link do cenario
+	 * @param controller  controlador do cenario
+	 * @return root
+	 * @throws IOException dá erro
 	 */
 	public static Parent createNewNodeTree(String viewPath, Object controller) throws IOException {
 		FXMLLoader loader = new FXMLLoader(

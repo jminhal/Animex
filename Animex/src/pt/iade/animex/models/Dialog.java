@@ -11,9 +11,10 @@ import javafx.scene.control.Alert.AlertType;
 public class Dialog {
 	
 	/**
-	 * Dialog de warning
+	 * 	 * Dialog de warning
 	 * @param title titulo do warning
 	 * @param text texto do warning
+	 * @param Header cabeçalho do warning
 	 */
 	public static void warningDialog(String title, String text, String Header) {
 		Alert alert = new Alert(AlertType.WARNING);
@@ -27,28 +28,18 @@ public class Dialog {
 	
 	/**
 	 * Dialog de information
-	 * @param title titulo do information
-	 * @param text texto do information
+	 * @param title titulo do warning
+	 * @param text texto do warning
+	 * @param Header cabeçalho do warning
 	 */
-	public static void informationDialog(String title, String text) {
+	public static void informationDialog(String title, String text, String Header) {
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle(title);
 		alert.setContentText(text);
+		alert.setHeaderText(Header);
 
 		alert.showAndWait();
 	}
-	
-	/**
-	 * Dialog de error
-	 * @param title titulo do error
-	 * @param text texto do error
-	 */
-	public static void error(String title, String text) {
-		Alert alert = new Alert(AlertType.ERROR);
-		alert.setTitle(title);
-		alert.setContentText(text);
 
-		alert.showAndWait();
-	}
 
 }

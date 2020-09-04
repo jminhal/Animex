@@ -3,6 +3,8 @@ package pt.iade.animex.models.daos;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import pt.iade.animex.models.Dialog;
+
 /**
  * Class responsavel por todas as queries para Mover Animes.
  */
@@ -21,9 +23,8 @@ public class MoverAnimeDAO {
 			statement2.setInt(1, anime_id);
 			statement2.setInt(2, user_id);
 			statement2.executeUpdate();
-			
-			//Dialog.warningDialog("Jogo Movido!", "Jogo movido para arquivo com sucesso!");
-			
+
+			Dialog.warningDialog("", "Anime movido para o voltar a ver com sucesso!","Anime Movido!");
 			
 		}
 		catch (SQLException e) {
@@ -45,7 +46,8 @@ public class MoverAnimeDAO {
 			statement2.setInt(2, user_id);
 			statement2.executeUpdate();
 			
-			//Dialog.warningDialog("Jogo Movido!", "Jogo movido para arquivo com sucesso!");
+
+			Dialog.warningDialog("", "Anime movido para o Continuar a ver com sucesso!","Anime Movido!");
 			
 			
 		}

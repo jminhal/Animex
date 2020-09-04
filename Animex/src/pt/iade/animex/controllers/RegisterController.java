@@ -6,6 +6,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import pt.iade.animex.WindowManager;
+import pt.iade.animex.models.Dialog;
 import pt.iade.animex.models.daos.LoginAndRegisterDAO;
 
 
@@ -37,7 +38,13 @@ public class RegisterController {
     void ConfirmarRegisto(ActionEvent event) { //botão que faz confirmação do registo
     	if(!username.getText().isEmpty() && birthday.getValue()!=null && !password.getText().isEmpty() && !passwordconf.getText().isEmpty()) {
     		if(password.getText().equals(passwordconf.getText())) {
-    			LoginAndRegisterDAO.createAccount(username.getText(), password.getText(),birthday.getValue().toString());
+    			if(!LoginAndRegisterDAO.userVerify(username.getText())) {
+    				LoginAndRegisterDAO.createAccount(username.getText(), password.getText(),birthday.getValue().toString());
+        			Dialog.warningDialog("", "Conta Criada com sucesso!", "Atenção" );
+        		}
+    			else {
+    				Dialog.warningDialog("", "Essa conta já existe", "Atenção" );	
+    			}
     		}
     	}
     	WindowManager.openMainWindow();

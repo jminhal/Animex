@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
+
 /**
  * Class responsavel por todas as queries para Login e Registo.
  */
@@ -34,6 +35,7 @@ public class LoginAndRegisterDAO {
 			statement.setString(2, password);
 			statement.setString(3, data);
 			statement.executeUpdate();
+
 
 		}
 		catch (SQLException e) {

@@ -23,6 +23,7 @@ import javafx.scene.layout.HBox;
 import javafx.util.Callback;
 import pt.iade.animex.WindowManager;
 import pt.iade.animex.models.Anime;
+import pt.iade.animex.models.Dialog;
 /**
  * Class responsavel por todas as queries para carregar os Animes.
  */
@@ -269,26 +270,38 @@ public class LoadAnimeDAO {
 	}
 	public static void addAnimeVoltarVer(int user_id, int anime_id) {
 		try {
-			//Vai verificar se o utilizador ja tem esse anime adicionado no voltarver
+			//Vai verificar se o utilizador ja tem esse anime adicionado no continuarver
 			PreparedStatement statement = DBConnector.getConnection()
-					.prepareStatement("select anime_id from voltarver where anime_id = ? and user_id = ?");
+					.prepareStatement("select anime_id from continuarver where anime_id = ? and user_id = ?");
 			statement.setInt(1, anime_id);
 			statement.setInt(2, user_id);
 			ResultSet results = statement.executeQuery();
-			//Se o utilizador nao tiver esse anime ja adicionado no voltarver vai adiciona-lo
-			if (!results.next()) {
-				
-				//Vai fazer o insert do anime voltarver
-				PreparedStatement statement2 = DBConnector.getConnection()
-						.prepareStatement("INSERT INTO voltarver (anime_id, user_id) VALUES (?,?)");
-				statement2.setInt(1, anime_id);
-				statement2.setInt(2, user_id);
-				statement2.executeUpdate();
-				System.out.print("sdas");
-				
-				//Dialog.informationDialog("Jogo Adicionado!", "Jogo adicionado na biblioteca com sucesso!");
+			//Se o utilizador tiver esse anime ja adicionado no continuarver
+			if (results.next()) {
+				Dialog.warningDialog("", "Essa anime já foi anteriormente adicionado ao continuar a ver", "Atenção" );	
 			}
-			
+			else {		
+			//Vai verificar se o utilizador ja tem esse anime adicionado no voltarver
+			PreparedStatement statement1 = DBConnector.getConnection()
+					.prepareStatement("select anime_id from voltarver where anime_id = ? and user_id = ?");
+			statement1.setInt(1, anime_id);
+			statement1.setInt(2, user_id);
+			ResultSet results1 = statement1.executeQuery();
+			//Se o utilizador nao tiver esse anime ja adicionado no voltarver vai adiciona-lo
+				if (!results1.next()) {
+					
+					//Vai fazer o insert do anime voltarver
+					PreparedStatement statement2 = DBConnector.getConnection()
+							.prepareStatement("INSERT INTO voltarver (anime_id, user_id) VALUES (?,?)");
+					statement2.setInt(1, anime_id);
+					statement2.setInt(2, user_id);
+					statement2.executeUpdate();
+					Dialog.warningDialog("", "Anime movido para o voltar a ver com sucesso!","Anime Movido!");
+				}
+				else{
+    				Dialog.warningDialog("", "Esse anime já existe no voltar a ver", "Atenção" );	
+				}
+			}
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
@@ -296,26 +309,40 @@ public class LoadAnimeDAO {
 	}
 	public static void addAnimeContinuarVer(int user_id, int anime_id) {
 		try {
-			//Vai verificar se o utilizador ja tem esse anime adicionado no continuarver
+			//Vai verificar se o utilizador ja tem esse anime adicionado no voltarver
 			PreparedStatement statement = DBConnector.getConnection()
-					.prepareStatement("select anime_id from continuarver where anime_id = ? and user_id = ?");
+					.prepareStatement("select anime_id from voltarver where anime_id = ? and user_id = ?");
 			statement.setInt(1, anime_id);
 			statement.setInt(2, user_id);
 			ResultSet results = statement.executeQuery();
-			//Se o utilizador nao tiver esse anime ja adicionado no continuarver vai adiciona-lo
-			if (!results.next()) {
-				
-				//Vai fazer o insert do anime continuarver
-				PreparedStatement statement2 = DBConnector.getConnection()
-						.prepareStatement("INSERT INTO continuarver (anime_id, user_id) VALUES (?,?)");
-				statement2.setInt(1, anime_id);
-				statement2.setInt(2, user_id);
-				statement2.executeUpdate();
-				System.out.print("sdsad");
-				
-				//Dialog.informationDialog("Jogo Adicionado!", "Jogo adicionado na biblioteca com sucesso!");
+			//Se o utilizador tiver esse anime ja adicionado no voltarver
+			if (results.next()) {
+				Dialog.warningDialog("", "Essa anime já foi anteriormente adicionado ao voltar a ver", "Atenção" );	
 			}
+			else {	
 			
+			
+			//Vai verificar se o utilizador ja tem esse anime adicionado no continuarver
+			PreparedStatement statement1 = DBConnector.getConnection()
+					.prepareStatement("select anime_id from continuarver where anime_id = ? and user_id = ?");
+			statement1.setInt(1, anime_id);
+			statement1.setInt(2, user_id);
+			ResultSet results1 = statement1.executeQuery();
+			//Se o utilizador nao tiver esse anime ja adicionado no continuarver vai adiciona-lo
+				if (!results1.next()) {
+					
+					//Vai fazer o insert do anime continuarver
+					PreparedStatement statement2 = DBConnector.getConnection()
+							.prepareStatement("INSERT INTO continuarver (anime_id, user_id) VALUES (?,?)");
+					statement2.setInt(1, anime_id);
+					statement2.setInt(2, user_id);
+					statement2.executeUpdate();
+					Dialog.warningDialog("", "Anime movido para o continuar a ver com sucesso!","Anime Movido!");
+				}
+				else{
+    				Dialog.warningDialog("", "Esse anime já existe no continuar a ver", "Atenção" );	
+				}
+			}
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
