@@ -116,13 +116,10 @@ public class WindowManager {
 	}
 
 	/**
-	 * Declaracao do metodo para abrir nova janela com o controlador
-	 * @param viewPath local do janela
-	 * @param window stage
-	 * @param controller contralador da janela
-	 * @param titulo titulo da janela
-	 * @param width largura da janela
-	 * @param height comprimento da janela
+	 * 	 * Declaracao do metodo para abrir nova janela com o controlador
+	 * @param viewPath link do fxml
+	 * @param window janela
+	 * @param controller controlador
 	 */
 	public static void openWindow(String viewPath, Stage window, 
 			Object controller) {
